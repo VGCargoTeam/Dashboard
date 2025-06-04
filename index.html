@@ -1,1 +1,43 @@
-<!DOCTYPE html><html><body><h1>Charter Request Formular</h1></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>Charter Request</title>
+<style>
+body { font-family: sans-serif; background: #f4f4f4; padding: 20px; max-width: 600px; margin: auto; }
+form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+input, textarea, select { width: 100%; padding: 10px; margin-top: 5px; }
+label { margin-top: 15px; display: block; font-weight: bold; }
+.required::after { content: " *"; color: red; }
+button { background: #007bff; color: white; padding: 10px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer; }
+</style></head>
+<body>
+<h2>Charter Request</h2>
+<form id="requestForm">
+<label class="required">Billing Company</label><input name="billingCompany" required>
+<label class="required">Billing Address</label><input name="billingAddress" required>
+<label class="required">Tax Number</label><input name="taxNumber" required>
+<label class="required">Contact Name</label><input name="contactName" required>
+<label class="required">Contact Email</label><input type="email" name="contactEmail" required>
+<label>Airline</label><input name="airline">
+<label>Planned Flight Date</label><input type="date" name="flightDate">
+<label>Tonnage (kg)</label><input type="number" name="tonnage">
+<label>Email Request (copy & paste)</label><textarea name="emailRequest" rows="5"></textarea>
+<label><input type="checkbox" required> AGB akzeptiert *</label>
+<label><input type="checkbox" required> Leistungsverzeichnis akzeptiert *</label>
+<button type="submit">Submit Request</button>
+</form>
+<script>
+document.getElementById("requestForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form));
+  const res = await fetch("/api/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  const result = await res.json();
+  alert("Danke! Ihre Referenznummer ist: " + result.ref);
+  form.reset();
+});
+</script>
+</body></html>
