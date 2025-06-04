@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>Login</title>
+<script>
+function login(e) {
+  e.preventDefault();
+  const pw = document.getElementById("pw").value;
+  if (pw === "vgcargo123") {
+    localStorage.setItem("authorized", "1");
+    window.location.href = "/dashboard.html";
+  } else {
+    alert("Falsches Passwort");
+  }
+}
+</script></head>
+<body>
+<form onsubmit="login(event)">
+  <h2>Dashboard Login</h2>
+  <input type="password" id="pw" placeholder="Passwort" required />
+  <button type="submit">Login</button>
+</form>
+</body></html>
