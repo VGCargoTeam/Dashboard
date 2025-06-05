@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Charter Request</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charter Request (Google Sheets)</title>
   <style>
-    body { font-family: sans-serif; background: #f4f4f4; padding: 20px; max-width: 600px; margin: auto; }
-    form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    input, textarea { width: 100%; padding: 10px; margin-top: 5px; }
-    label { margin-top: 15px; display: block; font-weight: bold; }
-    .required::after { content: " *"; color: red; }
-    button { background: #007bff; color: white; padding: 10px; border: none; border-radius: 5px; margin-top: 20px; cursor: pointer; }
+    body { font-family: Arial, sans-serif; padding: 2em; background-color: #f8f8f8; }
+    form { background: white; padding: 2em; border-radius: 8px; max-width: 500px; margin: auto; }
+    input, textarea { width: 100%; margin-bottom: 1em; padding: 0.5em; }
+    button { padding: 0.7em 1.5em; background: #007BFF; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
   </style>
 </head>
 <body>
-<h2>Charter Request (Google Sheets – ohne JS)</h2>
-<form action="https://script.google.com/macros/s/AKfycbxvrfHATCmOALhXzJLNbsaU7UN9ywskzMrys7UsrRZQLTtxbKZPAtU00NccuUsY1Er2/exec" method="POST">
-  <label class="required">Billing Company</label><input name="billingCompany" required>
-  <label class="required">Billing Address</label><input name="billingAddress" required>
-  <label class="required">Tax Number</label><input name="taxNumber" required>
-  <label class="required">Contact Name</label><input name="contactName" required>
-  <label class="required">Contact Email</label><input type="email" name="contactEmail" required>
-  <label>Airline</label><input name="airline">
-  <label>Planned Flight Date</label><input type="date" name="flightDate">
-  <label>Tonnage (kg)</label><input type="number" name="tonnage">
-  <label>Email Request (copy & paste)</label><textarea name="emailRequest" rows="5"></textarea>
-  <label><input type="checkbox" required> AGB akzeptiert *</label>
-  <label><input type="checkbox" required> Leistungsverzeichnis akzeptiert *</label>
-  <input type="submit" value="Submit Request">
-</form>
+  <h2>Charter Request (Google Sheets)</h2>
+  <form action="YOUR_GOOGLE_SCRIPT_EXEC_URL" method="POST">
+    <label>Billing Company: <input name="billingCompany" required /></label>
+    <label>Billing Address: <input name="billingAddress" required /></label>
+    <label>Tax Number: <input name="taxnumber" required /></label>
+    <label>Contact Name: <input name="contactName" required /></label>
+    <label>Contact Email: <input name="contactEmail" type="email" required /></label>
+    <label>Airline: <input name="airline" /></label>
+    <label>Planned Flight Date: <input name="flightDate" type="date" /></label>
+    <label>Tonnage (kg): <input name="tonnage" type="number" /></label>
+    <label>Email Request (copy & paste): <textarea name="emailRequest" rows="4"></textarea></label>
+    <button type="submit">Submit Request</button>
+  </form>
 </body>
 </html>
