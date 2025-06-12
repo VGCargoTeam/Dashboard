@@ -76,12 +76,19 @@
       cursor: help;
     }
     .nav button, .btn {
-      padding: 6px 12px;
-      margin: 3px;
-      border: none;
+      padding: 6px 10px;
+      margin: 4px;
       border-radius: 6px;
+      font-weight: bold;
       font-size: 13px;
+      border: none;
+      background: #007BFF;
+      color: white;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav button:hover {
+      background: #0056b3;
     }
     .btn-view { background-color: #17a2b8; color: white; }
     .btn-delete { background-color: #dc3545; color: white; }
@@ -141,10 +148,10 @@
   </div>
   <div class="main">
     <h1>Charter Dashboard</h1>
-    <div style="text-align: center; font-size: 14px; color: #007BFF;">
+    <div style="text-align: center; font-size: 18px; color: #007BFF;">
       <span id="currentDate">Date: --</span> | <span id="clock">Time: --:--:--</span>
     </div>
-    <div style="margin-top: 10px;">
+    <div style="margin-top: 12px;">
       <label>Reference:</label> <input type="text" id="refSearch" onkeyup="filterTable()" />
       <label>Airline:</label> <input type="text" id="airlineSearch" onkeyup="filterTable()" />
       <label>From:</label> <input type="date" id="fromDate" onchange="filterTable()" />
